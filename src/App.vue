@@ -17,6 +17,8 @@ import SectionTitle from './components/SectionTitle.vue'
   <AboutComponent />
   <SectionTitle children="Proyectos" id="projects" />
   <ProjectsComponent />
+  <SectionTitle children="Contacto" />
+  <SectionTitle children="En desarrollo...⏳" />
   <FooterComponent />
 </template>
 
