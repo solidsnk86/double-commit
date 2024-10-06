@@ -23,7 +23,7 @@ const toggleMenu = () => {
 
     <aside :class="{ open: isMenuOpen }">
       <li v-for="(item, index) in navItems" :key="index">
-        <a class="link" :href="item.path">{{ item.name }}</a>
+        <a class="link" :href="item.path" @click="toggleMenu">{{ item.name }}</a>
       </li>
       <footer v-if="isMenuOpen">
         <p>&copy;Double Commit - UTN-FRSR {{ new Date().getFullYear() }}</p>
