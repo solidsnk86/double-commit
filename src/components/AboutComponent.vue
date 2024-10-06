@@ -28,13 +28,14 @@ section {
   margin: 100px auto;
   justify-content: center;
   text-align: center;
+  padding: 10px;
 }
 
 .container-about {
   border: 1px solid var(--color-border);
   border-radius: 20px;
   padding: 16px;
-  background: linear-gradient(to top, var(--second-color-text), #00caff);
+  background: linear-gradient(to bottom, #0099ff9d, #00ccffe1);
 }
 
 p {

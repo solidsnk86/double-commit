@@ -13,9 +13,9 @@ import SectionTitle from './components/SectionTitle.vue'
   <div class="bg-effect-2"></div>
   <NavComponent />
   <HeroComponent />
-  <SectionTitle children="Acerca" />
+  <SectionTitle children="Acerca" id="about" />
   <AboutComponent />
-  <SectionTitle children="Proyectos" />
+  <SectionTitle children="Proyectos" id="projects" />
   <ProjectsComponent />
   <FooterComponent />
 </template>

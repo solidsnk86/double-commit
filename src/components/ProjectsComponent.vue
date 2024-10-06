@@ -22,22 +22,24 @@ import { ArrowUpRight } from 'lucide-vue-next'
 
 <style lang="css" scoped>
 section {
+  max-width: 872px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  padding: 80px;
   justify-content: center;
   margin: 100px auto;
-  gap: 8px;
+  gap: 16px;
 }
 
 .project {
   border-radius: 20px;
   overflow: hidden;
+  padding: 0;
+  margin: 0;
 }
 
 article {
   padding: 16px;
-  background: linear-gradient(to bottom, var(--second-color-text), #00caff);
+  background: linear-gradient(to bottom, #0099ff9d, #00ccffe1);
 }
 
 h3 {
@@ -75,7 +77,9 @@ a:hover {
 
 @media (width <= 700px) {
   section {
+    max-width: 100%;
     padding: 10px;
+    gap: 8px;
   }
 }
 </style>

@@ -5,6 +5,21 @@ export const apiKey =
     : // eslint-disable-next-line no-undef
       process.env.NEXT_PUBLIC_WEATHER_API_KEY
 
+export const navItems = [
+  {
+    name: 'Acerca',
+    path: '#about'
+  },
+  {
+    name: 'Contacto',
+    path: '/contact'
+  },
+  {
+    name: 'Proyectos',
+    path: '#projects'
+  }
+]
+
 export const members = [
   {
     name: 'Franco Morales',
