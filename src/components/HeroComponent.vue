@@ -12,6 +12,7 @@ header {
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  z-index: 99;
 }
 h1 {
   color: var(--color-heading);
@@ -23,7 +24,7 @@ h1 {
 span {
   font-size: 4rem;
   font-weight: 700;
-  color: #0099ff;
+  color: var(--second-color-text);
   margin-left: 4px;
 }
 

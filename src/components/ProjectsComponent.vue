@@ -5,7 +5,6 @@ import { ArrowUpRight } from 'lucide-vue-next'
 </script>
 
 <template>
-  <h1>Sección Proyectos</h1>
   <section>
     <div class="project" v-for="(project, index) in projectsItems" :key="index">
       <img :src="project.img" :alt="project.name" width="100%" height="auto" />
@@ -22,20 +21,12 @@ import { ArrowUpRight } from 'lucide-vue-next'
 </template>
 
 <style lang="css" scoped>
-h1 {
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--color-heading);
-  margin-top: 190px;
-}
-
 section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   padding: 80px;
   justify-content: center;
-  margin: 0 auto;
+  margin: 100px auto;
   gap: 8px;
 }
 
@@ -47,6 +38,7 @@ section {
 
 article {
   padding: 16px;
+  background: linear-gradient(to bottom, var(--second-color-text), #00caff);
 }
 
 h3 {
@@ -62,17 +54,19 @@ h3 {
 
 a {
   display: flex;
-  color: var(--color-heading);
-  border: 1px solid var(--color-border);
+  color: var(--second-color-text);
+  background: #ffffff;
   border-radius: 8px;
   padding: 4px 8px;
   align-items: center;
   gap: 4px;
   text-decoration: none;
+  font-weight: 500;
 }
 
 a:hover {
-  background-color: var(--color-border);
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
 
 @media (width <= 700px) {

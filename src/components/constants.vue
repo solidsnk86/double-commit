@@ -5,6 +5,19 @@ export const apiKey =
     : // eslint-disable-next-line no-undef
       process.env.NEXT_PUBLIC_WEATHER_API_KEY
 
+export const members = [
+  {
+    name: 'Franco Morales',
+    avatar: 'https://avatars.githubusercontent.com/u/134340520?v=4',
+    link: 'https://github.com/Mendoxeneixe'
+  },
+  {
+    name: 'Gabriel Calcagni',
+    avatar: 'https://avatars.githubusercontent.com/u/93176365?v=4',
+    link: 'https://github.com/solidsnk86/'
+  }
+]
+
 export const projectsItems = [
   {
     name: 'Proyecto Python',
