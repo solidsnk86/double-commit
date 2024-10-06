@@ -31,7 +31,6 @@ section {
 }
 
 .project {
-  border: 1px solid var(--color-border);
   border-radius: 20px;
   overflow: hidden;
 }
@@ -44,6 +43,11 @@ article {
 h3 {
   font-size: 1.5rem;
   font-weight: 600;
+  color: var(--color-heading);
+}
+
+p {
+  color: var(--color-heading);
 }
 
 .links {
