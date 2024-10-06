@@ -3,7 +3,7 @@ export const apiKey =
   import.meta.env.MODE === 'development'
     ? import.meta.env.VITE_WEATHER_API_KEY
     : // eslint-disable-next-line no-undef
-      process.env.NEXT_PUBLIC_WEATHER_API_KEY
+      import.meta.env.NEXT_PUBLIC_WEATHER_API_KEY
 
 export const navItems = [
   {
