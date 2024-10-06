@@ -19,10 +19,7 @@ onMounted(async () => {
   <header>
     <h1>
       Bienvenidos al portafolio
-      <span
-        ><Terminal width="64" height="64" style="transform: translateY(10px); font-weight: 900" />
-        Double-Commit</span
-      >
+      <span><Terminal class="terminal-icon" /> Double-Commit</span>
     </h1>
   </header>
   <aside>
@@ -58,7 +55,6 @@ span {
   font-size: 4rem;
   font-weight: 700;
   color: var(--second-color-text);
-  margin-left: 4px;
 }
 
 aside {
@@ -69,6 +65,13 @@ aside {
 
 .loading {
   padding: 2px 8px;
+}
+
+.terminal-icon {
+  width: 64px;
+  height: 64px;
+  transform: translateY(11px);
+  font-weight: 900;
 }
 
 p {
@@ -91,6 +94,9 @@ b {
   h1,
   span {
     font-size: 2.5rem;
+  }
+  .terminal-icon {
+    display: none;
   }
 }
 </style>
