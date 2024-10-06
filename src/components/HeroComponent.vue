@@ -98,5 +98,8 @@ b {
   .terminal-icon {
     display: none;
   }
+  p {
+    font-size: 14px;
+  }
 }
 </style>
