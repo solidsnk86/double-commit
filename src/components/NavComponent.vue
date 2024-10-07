@@ -17,7 +17,7 @@ const toggleMenu = () => {
       <span>Double Commit</span>
     </div>
     <button class="menu-btn" @click="toggleMenu">
-      <AlignRight v-if="!isMenuOpen" class="menu-icon" />
+      <AlignRight v-if="!isMenuOpen" class="menu-icon" width="26" height="26" />
       <X v-if="isMenuOpen" class="x-icon" />
     </button>
 
