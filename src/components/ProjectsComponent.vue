@@ -77,6 +77,7 @@ a:hover {
 
 @media (width <= 700px) {
   section {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr);
     max-width: 100%;
     padding: 10px;
     gap: 8px;
