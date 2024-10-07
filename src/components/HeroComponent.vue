@@ -47,20 +47,21 @@ h1 {
   color: var(--color-heading);
   font-size: 4rem;
   text-align: center;
-  font-weight: 700;
+  font-weight: 800;
   text-wrap: pretty;
+  line-height: 1.4;
 }
 
 span {
   font-size: 4rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--second-color-text);
 }
 
 aside {
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  margin: 16px auto;
 }
 
 .loading {
