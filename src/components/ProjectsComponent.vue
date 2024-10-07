@@ -83,7 +83,7 @@ a:hover {
   section {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     max-width: 100%;
-    padding: 20px;
+    padding: 40px;
   }
 }
 </style>
