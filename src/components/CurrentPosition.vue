@@ -31,6 +31,17 @@ export class getLocation {
       }
     })
   }
+
+  static async lat() {
+    const data = await this.currentPosition()
+    return data.lat
+  }
+
+  static async lon() {
+    const data = await this.currentPosition()
+    return data.lon
+  }
+
   // Obtengo los datos del clima según la latitud y longitud
   //  Con éste truquito me permite obtener una ubicación más precisa y también los datos del clima
   static async apiData() {
@@ -64,16 +75,6 @@ export class getLocation {
   static async flag() {
     const data = await this.getData()
     return data.country.flag
-  }
-
-  static async lat() {
-    const data = await this.currentPosition()
-    return data.lat
-  }
-
-  static async lon() {
-    const data = await this.currentPosition()
-    return data.lon
   }
 }
 </script>
