@@ -46,8 +46,11 @@ export class getLocation {
     const data = await this.getData()
     return data.ip.address
   }
-  // Utilizo el operador nullish ?? para utilizar uno u otro
-  // Según si el usuario permite la geolocalización
+  /**
+   * Utilizo el operador nullish ?? para utilizar uno u otro
+   * Según si el usuario permite la geolocalización del navegador, si no lo permite
+   * se usa geolocation.microlink de todas formas
+   */
   static async city() {
     const data = (await this.apiData()) ?? (await this.getData())
     return data.name ?? data.city.name
