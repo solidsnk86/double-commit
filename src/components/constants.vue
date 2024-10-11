@@ -31,6 +31,16 @@ export const members = [
     name: 'Guardini Philama',
     avatar: 'https://avatars.githubusercontent.com/u/25463245?v=4',
     link: 'https://github.com/Philama'
+  },
+  {
+    name: 'Mauro Ezequiel Gonzáles',
+    avatar: 'https://avatars.githubusercontent.com/u/86989774?v=4',
+    link: 'https://github.com/megon1'
+  },
+  {
+    name: 'Cecilia Olejarczyk',
+    avatar: 'https://avatars.githubusercontent.com/u/104603137?v=4',
+    link: 'https://github.com/CeciliaOlejar'
   }
 ]
 
