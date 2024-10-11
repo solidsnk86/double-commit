@@ -33,7 +33,7 @@ export const members = [
     link: 'https://github.com/Philama'
   },
   {
-    name: 'Mauro Ezequiel Gonzáles',
+    name: 'Mauro E. Gonzales',
     avatar: 'https://avatars.githubusercontent.com/u/86989774?v=4',
     link: 'https://github.com/megon1'
   },
