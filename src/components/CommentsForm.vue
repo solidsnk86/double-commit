@@ -4,7 +4,9 @@ import { z } from 'zod'
 import { Model } from './ActionClass.vue'
 import CommentsComponent from './CommentsComponent.vue'
 import { getLocation } from './CurrentPosition.vue'
+import { resize } from './constants.vue'
 
+// Hooks de vue.js
 const dataForm = ref({
   ip: '',
   name: '',
@@ -53,7 +55,7 @@ const validateField = (field) => {
 const refreshComments = async () => {
   comments.value = await Model.getComment()
 }
-
+// Envío del formulario a la BD
 const sendForm = async (e) => {
   e.preventDefault()
   isSubmiting.value = true
@@ -65,11 +67,11 @@ const sendForm = async (e) => {
   dialogMessage.value = `Muchas gracias por tu comentario ${dataForm.value.name}!`
   dataForm.value = { name: '', email: '', message: '' }
   await refreshComments()
+  isSubmiting.value = false
 }
 
 const closeDialog = () => {
   showDialog.value = false
-  isSubmiting.value = false
 }
 
 onMounted(refreshComments)
@@ -98,9 +100,12 @@ onMounted(refreshComments)
     />
     <span v-if="errors.email" class="error">{{ errors.email }}</span>
     <textarea
+      id="textarea"
       v-model="dataForm.message"
       @blur="validateField('message')"
       placeholder="Escribí tu mensaje aquí"
+      @input="resize"
+      maxlength="160"
     ></textarea>
     <span v-if="errors.message" class="error">{{ errors.message }}</span>
 
@@ -148,6 +153,7 @@ textarea {
 
 textarea {
   resize: none;
+  overflow-y: hidden;
 }
 
 input:focus,

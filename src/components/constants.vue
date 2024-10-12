@@ -33,7 +33,7 @@ export const members = [
     link: 'https://github.com/Philama'
   },
   {
-    name: 'Mauro E. Gonzales',
+    name: 'Mauro Gonzales',
     avatar: 'https://avatars.githubusercontent.com/u/86989774?v=4',
     link: 'https://github.com/megon1'
   },
@@ -70,4 +70,13 @@ export const projectsItems = [
 
 export const DBKEY = import.meta.env.VITE_SUPABASE_PUBLIC_ANNONKEY
 export const DBURL = import.meta.env.VITE_SUPABASE_URL
+
+export const resize = () => {
+  const textarea = document.getElementById('textarea')
+  textarea.addEventListener('input', () => {
+    textarea.style.height = 'auto'
+    textarea.style.height = textarea.scrollHeight + 'px'
+  })
+  return textarea
+}
 </script>
