@@ -9,8 +9,11 @@ const dataForm = ref({
   ip: '',
   name: '',
   email: '',
-  message: ''
+  message: '',
+  city: '',
+  country: ''
 })
+const isSubmiting = ref(false)
 const showDialog = ref(false)
 const dialogMessage = ref('')
 const errors = ref({})
@@ -50,7 +53,10 @@ const refreshComments = async () => {
 
 const sendForm = async (e) => {
   e.preventDefault()
+  isSubmiting.value = true
   dataForm.value.ip = await getLocation.ip()
+  dataForm.value.city = await getLocation.city()
+  dataForm.value.country = await getLocation.country()
   await Model.sendComment(formSchema, dataForm.value, errors.value)
   showDialog.value = true
   dialogMessage.value = `Muchas gracias por tu comentario ${dataForm.value.name}!`
@@ -60,6 +66,7 @@ const sendForm = async (e) => {
 
 const closeDialog = () => {
   showDialog.value = false
+  isSubmiting.value = false
 }
 
 onMounted(refreshComments)
@@ -67,33 +74,36 @@ onMounted(refreshComments)
 
 <template>
   <form @submit="sendForm">
-    <div>
-      <input
-        type="text"
-        v-model="dataForm.name"
-        @blur="validateField('name')"
-        placeholder="Ingresa tu nombre"
-      />
-      <span v-if="errors.name" class="error">{{ errors.name }}</span>
-    </div>
-    <div>
-      <input
-        type="email"
-        v-model="dataForm.email"
-        @blur="validateField('email')"
-        placeholder="Ingresa tu email"
-      />
-      <span v-if="errors.email" class="error">{{ errors.email }}</span>
-    </div>
-    <div>
-      <textarea
-        v-model="dataForm.message"
-        @blur="validateField('message')"
-        placeholder="Escribí tu mensaje aquí"
-      ></textarea>
-      <span v-if="errors.message" class="error">{{ errors.message }}</span>
-    </div>
-    <button type="submit" :disabled="!isFormValid">Enviar</button>
+    <p
+      class="container-about"
+      style="text-align: center; color: var(--color-heading); margin: 16px auto"
+    >
+      Dejame un comentario si te ha gustado el portfolio! 😃
+    </p>
+    <input
+      type="text"
+      v-model="dataForm.name"
+      @blur="validateField('name')"
+      placeholder="Ingresa tu nombre"
+    />
+    <span v-if="errors.name" class="error">{{ errors.name }}</span>
+    <input
+      type="email"
+      v-model="dataForm.email"
+      @blur="validateField('email')"
+      placeholder="Ingresa tu email"
+    />
+    <span v-if="errors.email" class="error">{{ errors.email }}</span>
+    <textarea
+      v-model="dataForm.message"
+      @blur="validateField('message')"
+      placeholder="Escribí tu mensaje aquí"
+    ></textarea>
+    <span v-if="errors.message" class="error">{{ errors.message }}</span>
+
+    <button type="submit" :disabled="!isFormValid">
+      {{ isSubmiting ? 'Enviando..' : 'Enviar' }}
+    </button>
   </form>
 
   <dialog :open="showDialog">
@@ -107,13 +117,13 @@ onMounted(refreshComments)
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 form {
+  max-width: 400px;
   display: grid;
-  width: 550px;
   justify-content: center;
   margin: 120px auto;
-  gap: 8px;
+  gap: 12px;
 }
 
 input,
@@ -165,7 +175,7 @@ dialog {
   padding: 16px;
   border-radius: 10px;
   border: none;
-  background-color: var(--color-background);
+  background: linear-gradient(to bottom, #0099ff9d, #00ccffe1);
   border: 1px solid var(--color-border);
   color: var(--color-heading);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
