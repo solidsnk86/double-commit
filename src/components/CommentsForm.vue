@@ -81,7 +81,13 @@ onMounted(refreshComments)
   <form @submit="sendForm">
     <p
       class="container-about"
-      style="text-align: center; color: var(--color-heading); margin: 16px auto"
+      style="
+        text-align: center;
+        color: var(--color-heading);
+        margin: 16px auto;
+        text-shadow: 1px 2px 3px #222;
+        font-weight: 600;
+      "
     >
       Dejame un comentario si te ha gustado el portfolio! 😃
     </p>

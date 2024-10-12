@@ -15,12 +15,15 @@ import CommentsForm from './components/CommentsForm.vue'
   <div class="bg-effect-2"></div>
   <NavComponent />
   <HeroComponent />
-  <SectionTitle children="Acerca" id="about" />
+  <span id="about"></span>
+  <SectionTitle children="Acerca" />
   <AboutComponent />
-  <SectionTitle children="Proyectos" id="projects" />
+  <span id="projects"></span>
+  <SectionTitle children="Proyectos" />
   <ProjectsComponent />
   <SectionTitle children="Tiempo Entrega Proyectos ⏳" />
   <RemainTime />
+  <span id="contact"></span>
   <SectionTitle children="Comentarios" />
   <CommentsForm />
   <FooterComponent />
