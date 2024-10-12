@@ -18,7 +18,10 @@ defineProps({
         ' IP: ' +
         data.ip +
         '. Desde ' +
-        data.city
+        data.city +
+        ', ' +
+        data.country +
+        '.'
       "
     >
       <header>

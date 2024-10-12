@@ -111,8 +111,12 @@ onMounted(refreshComments)
     <button @click="closeDialog">Cerrar</button>
   </dialog>
 
-  <div v-if="comments.length">
+  <div v-if="comments.length > 1">
     <h3>Comentarios recientes:</h3>
+    <CommentsComponent :data-comments="comments" />
+  </div>
+  <div v-else>
+    <h3>Comentario reciente:</h3>
     <CommentsComponent :data-comments="comments" />
   </div>
 </template>
