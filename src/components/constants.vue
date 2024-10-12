@@ -67,4 +67,7 @@ export const projectsItems = [
     description: 'Este es nuestro proyecto creado en Java para la Universidad.'
   }
 ]
+
+export const DBKEY = import.meta.env.VITE_SUPABASE_PUBLIC_ANNONKEY
+export const DBURL = import.meta.env.VITE_SUPABASE_URL
 </script>

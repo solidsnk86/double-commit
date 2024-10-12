@@ -6,6 +6,7 @@ import NavComponent from './components/NavComponent.vue'
 import ProjectsComponent from './components/ProjectsComponent.vue'
 import SectionTitle from './components/SectionTitle.vue'
 import RemainTime from './components/RemainTime.vue'
+import CommentsForm from './components/CommentsForm.vue'
 </script>
 
 <template>
@@ -20,7 +21,8 @@ import RemainTime from './components/RemainTime.vue'
   <ProjectsComponent />
   <SectionTitle children="Tiempo Entrega Proyectos ⏳" />
   <RemainTime />
-  <SectionTitle children="En desarrollo...🚧" class="development" />
+  <SectionTitle children="Comentarios" />
+  <CommentsForm />
   <FooterComponent />
 </template>
 
