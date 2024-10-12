@@ -19,6 +19,9 @@ const dialogMessage = ref('')
 const errors = ref({})
 const comments = ref([])
 
+/**
+ * Validación con zod, documentación: https://zod.dev/?id=introduction
+ */
 const formSchema = z.object({
   email: z.string().email({ message: 'Email no válido' }).trim(),
   message: z
