@@ -17,11 +17,15 @@ onMounted(async () => {
 
   ip.value = await Model.getVisitsCount()
 
-  const actualIP = await GetLocation.ip()
+  const objData = {
+    ip: await GetLocation.ip(),
+    city: await GetLocation.city(),
+    country: await GetLocation.country()
+  }
   const previousIPs = ip.value.map((v) => v.ip)
 
-  if (!previousIPs.includes(actualIP)) {
-    await Model.sendVisit({ ip: actualIP })
+  if (!previousIPs.includes(objData.ip)) {
+    await Model.sendVisit(objData)
   } else {
     return null
   }
