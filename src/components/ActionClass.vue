@@ -62,6 +62,7 @@ export class Model {
     }
 
     location.reload()
+    await this.getComment()
   }
 }
 </script>
