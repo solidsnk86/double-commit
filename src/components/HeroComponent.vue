@@ -120,4 +120,10 @@ b {
     font-size: 14px;
   }
 }
+
+@media (width <= 400) {
+  p {
+    font-size: 12px;
+  }
+}
 </style>

@@ -89,7 +89,9 @@ onMounted(refreshComments)
         font-weight: 600;
       "
     >
-      Dejame un comentario si te ha gustado el portfolio! 😃
+      ¡Déjame un comentario si te ha gustado el portafolio! ✨ También puedes aprovechar para
+      avisarme si encuentras algún error en los estilos o tienes sugerencias de mejora. ¡Tus
+      opiniones son muy valiosas! 😃
     </p>
     <input
       type="text"
