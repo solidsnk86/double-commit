@@ -150,6 +150,10 @@ form {
   padding: 12px;
 }
 
+input:placeholder-shown {
+  font-family: monospace;
+}
+
 input,
 textarea {
   padding: 10px 18px;
