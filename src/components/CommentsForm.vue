@@ -147,6 +147,7 @@ form {
   justify-content: center;
   margin: 120px auto;
   gap: 12px;
+  padding: 12px;
 }
 
 input,
@@ -171,7 +172,7 @@ textarea:focus {
 
 form button {
   border: none;
-  padding: 8px 12px;
+  padding: 12px;
   border-radius: 8px;
   border: 1px solid var(--color-border);
   background: linear-gradient(to bottom, #0099ff9d, #00ccffe1);
@@ -206,7 +207,6 @@ dialog {
 }
 
 dialog button {
-  padding: 8px 12px;
   display: flex;
   justify-content: center;
   margin: 16px auto 0;
@@ -238,6 +238,7 @@ dialog[open] {
   color: tomato;
   font-size: 11px;
   margin-top: 4px;
+  margin-left: 8px;
 }
 
 form > div {
