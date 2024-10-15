@@ -216,7 +216,7 @@ textarea {
 input:focus,
 textarea:focus {
   outline: 1px solid var(--second-color-text);
-  outline-offset: -2px;
+  outline-offset: -1.5px;
 }
 
 form button {
