@@ -49,7 +49,7 @@ small {
   margin: 16px auto;
 }
 .eyes {
-  transform: translateY(-4px);
+  transform: translateY(calc(50% - 12px));
   width: 16px;
   height: 16px;
   animation: blink 6s infinite;
