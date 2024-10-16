@@ -175,7 +175,7 @@ input {
 
 input,
 textarea {
-  padding: 10px 18px;
+  padding: 16px;
   background-color: transparent;
   margin-top: 12px;
   color: var(--color-heading);
@@ -198,7 +198,6 @@ textarea {
   width: 100%;
   height: 20px;
   bottom: 0;
-  background: linear-gradient(to bottom, #00ccffe1, #0099ff9d);
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   border-left: 1px solid var(--color-border);
@@ -209,8 +208,8 @@ textarea {
 
 .aside-textarea small {
   font-size: 11px;
-  margin-inline: 8px;
-  color: var(--color-heading);
+  margin-inline: 16px;
+  font-family: monospace;
 }
 
 input:focus,
