@@ -128,7 +128,7 @@ onMounted(refreshComments)
       :maxlength="MAX_LENGTH"
     ></textarea>
     <aside class="aside-textarea">
-      <small>Caractéres</small><small>{{ counterChars }} / {{ MAX_LENGTH }}</small>
+      <small>Caracteres</small><small>{{ counterChars }} / {{ MAX_LENGTH }}</small>
     </aside>
     <span v-if="errors.message" class="error">{{ errors.message }}</span>
 
