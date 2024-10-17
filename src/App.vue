@@ -28,6 +28,7 @@ import MarqueeComponent from './components/MarqueeComponent.vue'
   <SectionTitle children="Comentarios" />
   <CommentsForm />
   <MarqueeComponent />
+  <SectionTitle children="Proximamente más..." />
   <FooterComponent />
 </template>
 
