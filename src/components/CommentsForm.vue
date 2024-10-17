@@ -175,7 +175,7 @@ input {
 
 input,
 textarea {
-  padding: 16px;
+  padding: 10px 18px;
   background-color: transparent;
   margin-top: 12px;
   color: var(--color-heading);
@@ -190,6 +190,10 @@ textarea {
   border-left: 1px solid var(--color-border);
   border-right: 1px solid var(--color-border);
   border-top: 1px solid var(--color-border);
+}
+
+textarea:focus {
+  outline: none;
 }
 
 .aside-textarea {
@@ -209,11 +213,9 @@ textarea {
 .aside-textarea small {
   font-size: 11px;
   margin-inline: 16px;
-  font-family: monospace;
 }
 
-input:focus,
-textarea:focus {
+input:focus {
   outline: 1px solid var(--second-color-text);
   outline-offset: -1.5px;
 }
