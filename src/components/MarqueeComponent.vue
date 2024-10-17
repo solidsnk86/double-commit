@@ -23,7 +23,7 @@
 
 <style lang="css" scoped>
 section {
-  width: 500%;
+  width: 300%;
 }
 p {
   line-height: 3;
