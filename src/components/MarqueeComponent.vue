@@ -52,11 +52,6 @@ h3 {
   animation-timeline: view();
 }
 
-.marquee-phone,
-.reverse-phone {
-  display: none;
-}
-
 @keyframes marquee {
   to {
     transform: translateX(-10%);
