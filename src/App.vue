@@ -22,7 +22,7 @@ import MarqueeComponent from './components/MarqueeComponent.vue'
   <span id="projects"></span>
   <SectionTitle children="Proyectos" />
   <ProjectsComponent />
-  <SectionTitle children="Tiempo Entrega Proyectos ⏳" />
+  <SectionTitle children="Tiempo Entrega Proyecto ☕ JAVA ⏳" />
   <RemainTime />
   <span id="contact"></span>
   <SectionTitle children="Comentarios" />
