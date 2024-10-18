@@ -23,6 +23,7 @@
 
 <style lang="css" scoped>
 section {
+  margin-block: 60px;
   width: 300%;
 }
 p {
