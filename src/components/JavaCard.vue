@@ -153,7 +153,7 @@ img {
   }
 
   .img-container {
-    height: 200px;
+    height: 100%;
   }
 }
 </style>

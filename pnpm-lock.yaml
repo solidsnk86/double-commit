@@ -17,6 +17,9 @@ dependencies:
   vue-router:
     specifier: ^4.3.3
     version: 4.4.5(vue@3.5.11)
+  vue-toastification:
+    specifier: ^1.7.14
+    version: 1.7.14(vue@3.5.11)
   zod:
     specifier: ^3.23.8
     version: 3.23.8
@@ -1990,6 +1993,14 @@ packages:
       vue: ^3.2.0
     dependencies:
       '@vue/devtools-api': 6.6.4
+      vue: 3.5.11
+    dev: false
+
+  /vue-toastification@1.7.14(vue@3.5.11):
+    resolution: {integrity: sha512-khZR8t3NWZ/JJ2MZxXLbesHrRJ8AKa75PY5Zq8yMifF9x8lHq8ljYkC0d2PD9yahooygQB5tcFyRDkbbIPx8hw==}
+    peerDependencies:
+      vue: ^2.0.0
+    dependencies:
       vue: 3.5.11
     dev: false
 

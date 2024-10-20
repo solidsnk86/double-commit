@@ -28,9 +28,7 @@ section {
   margin: 100px auto;
   justify-content: center;
   text-align: center;
-  border: 1px solid #3f3f3f47;
-  border-radius: 20px;
-  overflow: hidden;
+  padding: 10px;
 }
 
 p {
