@@ -110,7 +110,6 @@ img {
     width: 100%;
     max-width: none;
     padding: 30px;
-    background-color: rgba(35, 35, 33, 0.8);
   }
 
   h2 {
@@ -122,8 +121,7 @@ img {
   }
 
   .img-container {
-    position: relative;
-    height: 300px;
+    height: 100%;
   }
 
   .bg-left {
