@@ -9,6 +9,28 @@ import RemainTime from './components/RemainTime.vue'
 import CommentsForm from './components/CommentsForm.vue'
 import MarqueeComponent from './components/MarqueeComponent.vue'
 import JavaCard from './components/JavaCard.vue'
+import { onMounted } from 'vue'
+
+const handleConnectionChange = () => {
+  if (navigator.onLine) {
+    alert('¡Estás en línea!')
+  } else {
+    alert('Estás desconectado. Verifica tu conexión.')
+  }
+}
+
+if (!navigator.onLine) {
+  alert('Estás desconectado. Verifica tu conexión.')
+}
+
+onMounted(() => {
+  window.addEventListener('online', handleConnectionChange)
+  window.addEventListener('offline', handleConnectionChange)
+  return () => {
+    window.removeEventListener('online', handleConnectionChange)
+    window.removeEventListener('offline', handleConnectionChange)
+  }
+})
 </script>
 
 <template>
