@@ -4,7 +4,7 @@ import { members } from './constants.vue'
 
 <template>
   <section>
-    <div class="container-about">
+    <div class="container-member">
       <p>
         Este grupo pertenece a la Organización Power System cohorte 2024 de la Universidad
         Tecnológica Nacional de San Rafael Mendoza, el cuál está integrado por:
@@ -28,7 +28,18 @@ section {
   margin: 100px auto;
   justify-content: center;
   text-align: center;
-  padding: 10px;
+  background-image: url('/beams.webp');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 1px solid #3f3f3f47;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.container-member {
+  padding: 20px;
+  background-color: #3f3f3f22;
 }
 
 p {
@@ -58,7 +69,7 @@ a {
 }
 
 a:hover img {
-  outline: 2px solid #00ccffe1;
+  outline: 2px solid #124ea1;
   transition: ease-in-out 0.2s;
 }
 

@@ -20,7 +20,7 @@
 article {
   position: relative;
   width: 90%;
-  max-width: 1200px;
+  max-width: 872px;
   height: 500px;
   display: flex;
   justify-content: flex-start;
