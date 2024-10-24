@@ -5,8 +5,8 @@
     <div class="text-container">
       <h2>Proyecto Java en Construcción</h2>
       <p>
-        Pronto podrán disfrutar del proyecto integrador final en Java para la facultad de la mano
-        del grupo Double Commit de la Organización Power System 2024 UTN-FRSR.
+        Pronto podrán ver el proyecto integrador final en Java para la facultad de la mano del grupo
+        Double Commit de la Organización Power System 2024 UTN-FRSR.
       </p>
     </div>
     <div class="img-container">
