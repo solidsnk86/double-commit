@@ -29,7 +29,28 @@ article {
   border: 1px solid var(--color-border);
   border-radius: 20px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.6s ease;
+  view-timeline-name: --javacard;
+  view-timeline-axis: block;
+
+  animation-timeline: --javacard;
+  animation-name: vanish;
+
+  animation-range: entry 50% cover 30%;
+  animation-fill-mode: both;
+}
+
+@keyframes vanish {
+  0% {
+    opacity: 0.1;
+    scale: 0.1;
+    filter: contrast(115%);
+  }
+  1% {
+    opacity: 0;
+    scale: 0.6;
+    filter: contrast(125%);
+  }
 }
 
 .text-container {
