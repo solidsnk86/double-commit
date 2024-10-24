@@ -45,7 +45,7 @@ export class Model {
   static async getVisitsCount() {
     const { data, error } = await supabase
       .from('double_commit_visits')
-      .select('*')
+      .select('id')
       .order('id', { ascending: false })
       .limit(1)
 
