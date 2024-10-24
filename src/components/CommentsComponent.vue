@@ -70,6 +70,7 @@ article {
   display: grid;
   gap: 8px;
   margin: 0 auto;
+  padding: 10px;
 }
 
 section {

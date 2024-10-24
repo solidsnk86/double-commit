@@ -1,6 +1,7 @@
 <script setup lang="js">
 import { ref, onMounted } from 'vue'
 import { Model } from './ActionClass.vue'
+import { MapPinnedIcon } from 'lucide-vue-next'
 
 const visitsCount = ref([])
 const visitsFrom = ref([])
@@ -19,7 +20,9 @@ onMounted(async () => {
 <template>
   <footer v-for="(visits, index) in visitsCount" :key="index">
     <small class="visits"><span class="eyes">👀</span> Visitas al portfolio: {{ visits.id }}</small>
-    <small style="text-align: center; margin: 25px auto">Últimas visita desde: </small>
+    <small style="text-align: center; margin: 25px auto"
+      ><MapPinnedIcon class="map-pinned" /> Última visita desde:
+    </small>
     <div class="from" v-for="(visit, index) in visitsFrom" :key="index">
       <small>{{ visit.city }}, {{ visit.country }}</small>
     </div>
@@ -91,6 +94,12 @@ small {
   background: linear-gradient(to bottom, #0099ff9d, #00ccffe1);
   border: 1px solid var(--color-border);
   border-radius: 10px;
+  color: var(--color-heading);
+}
+.map-pinned {
+  width: 16px;
+  height: 16px;
+  transform: translateY(1px);
   color: var(--color-heading);
 }
 </style>
