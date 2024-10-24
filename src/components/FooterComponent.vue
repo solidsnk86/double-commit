@@ -20,7 +20,7 @@ onMounted(async () => {
 <template>
   <footer v-for="(visits, index) in visitsCount" :key="index">
     <small class="visits"><span class="eyes">👀</span> Visitas al portfolio: {{ visits.id }}</small>
-    <small style="text-align: center; margin: 25px auto"
+    <small style="text-align: center; margin: 25px auto; color: var(--color-heading)"
       ><MapPinnedIcon class="map-pinned" /> Última visita desde:
     </small>
     <div class="from" v-for="(visit, index) in visitsFrom" :key="index">
@@ -100,6 +100,12 @@ small {
   width: 16px;
   height: 16px;
   transform: translateY(1px);
-  color: var(--color-heading);
+}
+
+@media (width < 700px) {
+  .map-pinned {
+    width: 14px;
+    height: 14px;
+  }
 }
 </style>
