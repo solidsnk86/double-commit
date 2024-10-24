@@ -29,14 +29,14 @@ article {
   border: 1px solid var(--color-border);
   border-radius: 20px;
   overflow: hidden;
-  transition: all 0.6s ease;
+  transition: all 0.8s ease;
   view-timeline-name: --javacard;
   view-timeline-axis: block;
 
   animation-timeline: --javacard;
   animation-name: vanish;
 
-  animation-range: entry 50% cover 30%;
+  animation-range: entry 50% cover 50%;
   animation-fill-mode: both;
 }
 
