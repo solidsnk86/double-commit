@@ -94,7 +94,9 @@ aside {
 }
 
 p {
-  padding: 6px 12px;
+  padding-block: 3px;
+  padding-left: 12px;
+  padding-right: 4px;
   border: 1px solid var(--color-border);
   border-radius: 99px;
   background-color: #02284a;
