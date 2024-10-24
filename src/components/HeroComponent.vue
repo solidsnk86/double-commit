@@ -23,7 +23,6 @@ onMounted(async () => {
     country: await GetLocation.country()
   }
   const previousIPs = ip.value.map((v) => v.ip)
-  console.log(previousIPs)
 
   if (!previousIPs.includes(objData.ip)) {
     await Model.sendVisit(objData)
