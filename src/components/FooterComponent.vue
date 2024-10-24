@@ -3,15 +3,26 @@ import { ref, onMounted } from 'vue'
 import { Model } from './ActionClass.vue'
 
 const visitsCount = ref([])
+const visitsFrom = ref([])
+
+const from = {
+  city: '',
+  country: ''
+}
 
 onMounted(async () => {
-  visitsCount.value = await Model.getVisitsCount()
+  visitsCount.value = await Model.getVisits('id', 1)
+  visitsFrom.value = await Model.getVisits(from, 1)
 })
 </script>
 
 <template>
   <footer v-for="(visits, index) in visitsCount" :key="index">
     <small class="visits"><span class="eyes">👀</span> Visitas al portfolio: {{ visits.id }}</small>
+    <small style="text-align: center; margin: 25px auto">Últimas visita desde: </small>
+    <div class="from" v-for="(visit, index) in visitsFrom" :key="index">
+      <small>{{ visit.city }}, {{ visit.country }}</small>
+    </div>
     <small class="text-footer"
       >&copy; Double Commit UTN~FRSR • {{ new Date().getFullYear() }}</small
     >
@@ -72,5 +83,14 @@ small {
   99% {
     opacity: 1;
   }
+}
+
+.from {
+  text-align: center;
+  padding: 8px;
+  background: linear-gradient(to bottom, #0099ff9d, #00ccffe1);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  color: var(--color-heading);
 }
 </style>

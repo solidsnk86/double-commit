@@ -13,7 +13,7 @@ const previousIP = ref([])
 const comments = ref([])
 
 onMounted(async () => {
-  ip.value = await Model.getVisitsCount()
+  ip.value = await Model.getVisits('ip', 1)
   previousIP.value = ip.value.map((v) => v.ip)
   comments.value = await Model.getComment()
 })
