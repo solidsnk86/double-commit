@@ -8,7 +8,8 @@ const visitsFrom = ref([])
 
 const from = {
   city: '',
-  country: ''
+  province: '',
+  country: '',
 }
 
 onMounted(async () => {
@@ -27,7 +28,7 @@ onMounted(async () => {
       <small>Cargando..</small>
     </div>
     <div v-else class="from" v-for="(visit, index) in visitsFrom" :key="index">
-      <small>{{ visit.city }}, {{ visit.country }}</small>
+      <small>{{ visit.city }} {{ visit.province }}, {{ visit.country }}</small>
     </div>
     <small class="text-footer"
       >&copy; Double Commit UTN~FRSR • {{ new Date().getFullYear() }}</small
