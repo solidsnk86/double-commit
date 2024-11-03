@@ -15,7 +15,7 @@ export class Model {
     return data
   }
 
-  static async sendComment(schema, data, errors) {
+  static async sendComment(schema, data, errors, onCreate) {
     try {
       schema.parse(data)
 
@@ -26,6 +26,8 @@ export class Model {
       } else {
         errors = {}
       }
+
+      await onCreate()
     } catch (error) {
       if (error instanceof z.ZodError) {
         error.errors.forEach((err) => {
