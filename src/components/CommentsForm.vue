@@ -156,13 +156,13 @@ onMounted(refreshComments)
   <div v-if="comments.length === 0">
     <div class="place-content"></div>
   </div>
-  <section v-else :ref="commentSection">
+  <section v-else>
     <div v-if="comments.length > 1">
-      <h3>Comentarios recientes:</h3>
+      <h3 :ref="commentSection">Comentarios recientes:</h3>
       <CommentsComponent :data-comments="comments" v-on:delete="refreshComments" />
     </div>
     <div v-else>
-      <h3>Comentario reciente:</h3>
+      <h3 :ref="commentSection">Comentario reciente:</h3>
       <CommentsComponent :data-comments="comments" v-on:delete="refreshComments" />
     </div>
   </section>
