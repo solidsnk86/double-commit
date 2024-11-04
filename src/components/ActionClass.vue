@@ -56,7 +56,7 @@ export class Model {
     return data
   }
 
-  static async delete(id, onDelete) {
+  static async delete(id) {
     const { error } = await supabase.from('portfolio_comments').delete().eq('id', id)
 
     if (error) {
@@ -64,7 +64,7 @@ export class Model {
       return
     }
 
-    await onDelete()
+    return { success: true }
   }
 }
 </script>

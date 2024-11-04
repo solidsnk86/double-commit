@@ -6,16 +6,29 @@ import { Model } from './ActionClass.vue'
 import { GetLocation } from './CurrentPosition.vue'
 
 defineProps({
-  dataComments: Array
+  dataComments: {
+    type: Array,
+    required: true
+  }
 })
+
+const emit = defineEmits(['delete'])
 
 const ip = ref([])
 const previousIP = ref([])
-const comments = ref([])
 const currentIp = ref([])
 
-const refreshComments = async () => {
-  comments.value = await Model.getComment()
+const deleteComment = async (id) => {
+  try {
+    const result = await Model.delete(id)
+    if (result.success) {
+      emit('delete')
+    } else {
+      console.error('Error al eliminar el comentario:', result.error)
+    }
+  } catch (error) {
+    console.error('Error en la operación de eliminación:', error)
+  }
 }
 
 onMounted(async () => {
@@ -23,14 +36,12 @@ onMounted(async () => {
   ip.value = await Model.getVisits('ip', 1)
   previousIP.value = ip.value.map((v) => v.ip)
 })
-
-onMounted(refreshComments)
 </script>
 
 <template>
   <article>
     <div
-      v-for="(data, index) in comments || dataComments"
+      v-for="(data, index) in dataComments"
       :key="data.id"
       id="comment"
       :style="index % 2 === 0 ? 'background-color: #0099ff9d' : 'background-color: #00ccffe1;'"
@@ -63,10 +74,10 @@ onMounted(refreshComments)
             id="trash"
             width="16"
             height="16"
-            @click="Model.delete(data.id, refreshComments)"
+            @click="deleteComment(data.id)"
+            class="cursor-pointer hover:text-red-500 transition-colors"
           />
         </span>
-        {{}}
         <span class="date">{{ Format.date(data.created_at) }}</span>
       </header>
       <p class="message">{{ data.message }}</p>
