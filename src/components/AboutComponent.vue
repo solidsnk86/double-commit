@@ -12,6 +12,7 @@ import { members } from './constants.vue'
           href="https://github.com/ArielBetancud22"
           target="_blank"
           title="Ir al perfil de Ariel Betancud"
+          class="teacher-link"
           >Ariel Betancud</a
         >, el cuál está integrado por:
       </p>
@@ -37,13 +38,13 @@ section {
   padding: 10px;
 }
 
-a {
+.teacher-link {
   text-decoration: none;
   color: var(--color-heading);
   font-weight: 600;
 }
 
-a:hover {
+.teacher-link:hover {
   text-decoration: underline;
   opacity: 0.8;
   transition: ease-in-out 0.2s;
