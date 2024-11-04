@@ -11,7 +11,8 @@ defineProps({
     required: true
   }
 })
-
+//  Es una macro de compilación de Vue 3 que se usa en la Composition API
+// con <script setup>. Es similar a defineProps.
 const emit = defineEmits(['delete'])
 
 const ip = ref([])
