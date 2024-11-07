@@ -38,7 +38,7 @@ onMounted(async () => {
   <header>
     <h1>
       Bienvenidos al portafolio
-      <span><Terminal class="terminal-icon" /> Double-Commit</span>
+      <span class="double-commit"><Terminal class="terminal-icon" /> Double-Commit</span>
     </h1>
   </header>
   <aside>
@@ -69,6 +69,18 @@ h1 {
   font-weight: 800;
   text-wrap: pretty;
   line-height: 1.4;
+}
+
+.double-commit {
+  font-size: 4rem;
+  font-weight: 900;
+  paint-order: stroke markers;
+  display: inline-block;
+  letter-spacing: -0.1ch;
+  -webkit-text-stroke: 18px #020c1e;
+  text-shadow:
+    0 0 10px black,
+    -5px 5px 0 #064073;
 }
 
 span {
