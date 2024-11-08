@@ -2,7 +2,6 @@
 import { supabase } from '@/lib/supabaseClient'
 import { z } from 'zod'
 
-// Clase para enviar
 export class Model {
   static async getComment() {
     const { data, error } = await supabase
