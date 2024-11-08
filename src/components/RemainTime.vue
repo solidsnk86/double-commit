@@ -28,14 +28,12 @@ function actualizarContador() {
     minutes: minutos.toString().padStart(2, '0'),
     seconds: segundos.toString().padStart(2, '0')
   }
-
   // Detener el contador si se alcanza la fecha objetivo
-  if (diferencia > 0) {
+  if (diferencia < 0) {
     timer.value = { days: '☕', hours: '☕', minutes: '☕', seconds: '☕' }
     clearInterval(intervalo)
   }
 }
-
 // Actualizar el contador cada segundo
 const intervalo = setInterval(actualizarContador, 1000)
 </script>
@@ -44,22 +42,26 @@ const intervalo = setInterval(actualizarContador, 1000)
   <div class="contador">
     <div class="bloque">
       <span>{{ timer.days }}</span>
-      <small>Días</small>
+      <small v-if="timer.days !== '☕'">Días</small>
+      <small v-else>El</small>
     </div>
     <div class="separador">:</div>
     <div class="bloque">
       <span>{{ timer.hours }}</span>
-      <small>Horas</small>
+      <small v-if="timer.hours !== '☕'">Horas</small>
+      <small v-else>Café</small>
     </div>
     <div class="separador">:</div>
     <div class="bloque">
       <span>{{ timer.minutes }}</span>
-      <small>Minutos</small>
+      <small v-if="timer.minutes !== '☕'">Minutos</small>
+      <small v-else>Está</small>
     </div>
     <div class="separador">:</div>
     <div class="bloque">
       <span>{{ timer.seconds }}</span>
-      <small>Segundos</small>
+      <small v-if="timer.seconds !== '☕'">Segundos</small>
+      <small v-else>Listo</small>
     </div>
   </div>
 </template>
