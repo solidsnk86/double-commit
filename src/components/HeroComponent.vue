@@ -142,4 +142,11 @@ b {
     font-size: 12px;
   }
 }
+
+@media (width < 400px) {
+  h1,
+  .double-commit {
+    font-size: 2.5rem;
+  }
+}
 </style>

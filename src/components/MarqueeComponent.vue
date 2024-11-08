@@ -1,4 +1,13 @@
-<script lang="js" setup></script>
+<script lang="js" setup>
+import { ref, onMounted } from 'vue'
+const isMobile = ref(false)
+
+onMounted(() => {
+  isMobile.value = window.innerWidth < 700
+})
+
+console.log(isMobile.value)
+</script>
 
 <template>
   <section class="marquee">
