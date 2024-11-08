@@ -86,7 +86,7 @@ a {
 }
 
 a:hover {
-  transform: scale(1.1);
+  transform: scale(1.04);
   transition: transform 0.3s ease;
   filter: drop-shadow(0 0 10px #2f3a419d);
 }
