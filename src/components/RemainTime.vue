@@ -30,7 +30,8 @@ function actualizarContador() {
   }
 
   // Detener el contador si se alcanza la fecha objetivo
-  if (diferencia < 0) {
+  if (diferencia > 0) {
+    timer.value = { days: '☕', hours: '☕', minutes: '☕', seconds: '☕' }
     clearInterval(intervalo)
   }
 }
