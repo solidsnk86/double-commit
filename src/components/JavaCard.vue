@@ -27,7 +27,7 @@ if (difference < 0) clearInterval(difference)
         en nuestro repositorio de GitHub.
       </p>
       <a
-        href="https://github.com/DoubleCommit/Proyecto-Final-Java"
+        href="https://github.com/PowerSystem2024/final_java_double_commit/releases"
         target="_blank"
         class="btn-github"
         >Ver Proyecto <i class="fas fa-external-link-alt"></i
@@ -128,6 +128,7 @@ img {
     padding: 4px 12px;
     border-radius: 8px;
     border: 1px solid #444;
+    background: #020202;
   }
 
   a {
