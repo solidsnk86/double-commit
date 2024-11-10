@@ -123,8 +123,8 @@ img {
 
   .btn-github {
     position:absolute;
-    right: 8px;
-    bottom: 8px;
+    right: 16px;
+    bottom: 16px;
     padding: 4px 12px;
     border-radius: 8px;
     border: 1px solid #444;
