@@ -130,6 +130,12 @@ img {
     border: 1px solid #444;
   }
 
+  a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+  }
+
 @media (max-width: 1024px) {
   article {
     height: auto;
