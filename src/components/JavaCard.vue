@@ -121,6 +121,15 @@ img {
   flex-shrink: 0;
 }
 
+  .btn-github {
+    position:absolute;
+    right: 8px;
+    bottom: 8px;
+    padding: 4px 12px;
+    border-radius: 8px;
+    border: 1px solid #444;
+  }
+
 @media (max-width: 1024px) {
   article {
     height: auto;
