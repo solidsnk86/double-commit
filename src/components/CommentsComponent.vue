@@ -12,7 +12,7 @@ defineProps({
   }
 })
 //  Es una macro de compilación de Vue 3 que se usa en la Composition API
-// con <script setup>. Es similar a defineProps.
+// con <script setup>. Es similar a defineProps, fuente: https://vuejs.org/api/options-state.html#emits
 const emit = defineEmits(['delete'])
 
 const ip = ref([])
