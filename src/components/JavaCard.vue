@@ -121,21 +121,26 @@ img {
   flex-shrink: 0;
 }
 
-  .btn-github {
-    position:absolute;
-    right: 16px;
-    bottom: 16px;
-    padding: 4px 12px;
-    border-radius: 8px;
-    border: 1px solid #444;
-    background: #020202;
-  }
+.btn-github {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #020202b1;
+}
 
-  a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 600;
-  }
+.btn-github:hover {
+  transform: scale(1.03);
+  transition: 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+}
 
 @media (max-width: 1024px) {
   article {
