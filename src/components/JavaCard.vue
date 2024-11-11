@@ -133,7 +133,9 @@ img {
 
 .btn-github:hover {
   transform: scale(1.03);
-  transition: 0.3s ease;
+  transition: 0.2s ease-in-out;
+  outline: 2px solid #020202b1;
+  outline-offset: 2px;
 }
 
 a {
