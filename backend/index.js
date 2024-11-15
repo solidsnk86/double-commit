@@ -23,7 +23,7 @@ app.post('/person', (req, res) => {
   }
 
   const newPerson = {
-    id: +1,
+    id: crypto.randomUUID(),
     ...result.data
   }
   personas.push(newPerson)
