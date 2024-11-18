@@ -2,7 +2,10 @@
 import { apiKey } from './constants.vue'
 let hook = {}
 
-// Clase para obtener ubucación de la api geolocation.microlink.io
+/**
+ * Clase para obtener ubicación de la api geolocation.microlink.io y desde la
+ * api de openweather para obtener una ubicación más precisa
+ */
 export class GetLocation {
   static async getData() {
     const response = await fetch('https://geolocation.microlink.io/')
