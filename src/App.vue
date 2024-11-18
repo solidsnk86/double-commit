@@ -25,7 +25,7 @@ import { difference } from './components/constants.vue'
   <SectionTitle children="Proyectos" />
   <ProjectsComponent />
   <SectionTitle v-if="difference > 0" children="Tiempo Entrega Proyecto ☕ Java" />
-  <SectionTitle v-else children="¡Proyecto Java Completado!" />
+  <SectionTitle v-else children="¡Proyecto Java!" />
   <RemainTime />
   <JavaCard />
   <span id="contact"></span>
