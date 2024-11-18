@@ -8,7 +8,7 @@ defineProps({
   <h2>{{ children }}</h2>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 h2 {
   text-align: center;
   font-size: 2.5rem;
