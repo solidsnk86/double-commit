@@ -18,18 +18,15 @@ import { difference } from './components/constants.vue'
   <div class="bg-effect-2"></div>
   <NavComponent />
   <HeroComponent />
-  <span id="about"></span>
-  <SectionTitle children="Acerca" />
+  <SectionTitle id="about" children="Acerca" />
   <AboutComponent />
-  <span id="projects"></span>
-  <SectionTitle children="Proyectos" />
+  <SectionTitle id="projects" children="Proyectos" />
   <ProjectsComponent />
   <SectionTitle v-if="difference > 0" children="Tiempo Entrega Proyecto ☕ Java" />
   <SectionTitle v-else children="¡Proyecto Java!" />
   <RemainTime />
   <JavaCard />
-  <span id="contact"></span>
-  <SectionTitle children="Comentarios" />
+  <SectionTitle id="contact" children="Comentarios" />
   <CommentsForm />
   <MarqueeComponent />
   <FooterComponent />
