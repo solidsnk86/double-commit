@@ -35,6 +35,7 @@ const formSchema = z.object({
     .string()
     .min(10, { message: 'El mesaje debe tener al menos 10 caracteres' })
     .max(MAX_LENGTH, { message: `El mensaje no debe superar los ${MAX_LENGTH} caracteres` })
+    .refine((val) => !val.includes('<script>'), { message: 'Contenido potencialmente peligroso!' })
 })
 
 const isFormValid = computed(() => {
