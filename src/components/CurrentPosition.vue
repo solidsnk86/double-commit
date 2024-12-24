@@ -68,12 +68,7 @@ export class GetLocation {
    */
   static async city() {
     const data = (await this.apiData()) ?? (await this.getData())
-    return data.name ?? data.city.name
-  }
-
-  static async country() {
-    const data = await this.getData()
-    return data.country
+    return data.name ?? data.city
   }
 
   static async flag() {
@@ -84,10 +79,10 @@ export class GetLocation {
    * Fuente para información sobre uso de expresiones regulares:
    * https://regex101.com/
    */
-  static async province() {
+  static async country() {
     const data = await this.getData()
-    let timeZone = data.timezone.replace(/.*\//, '') // Expresión regular para formateo de datos
-    return timeZone.replace('_', ' ')
+    let timeZone = data.timezone.replace(/America\/|Buenos_Aires/g, '')
+    return timeZone.replace('/', '')
   }
 }
 </script>

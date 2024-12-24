@@ -11,7 +11,6 @@ const ip = ref([])
 onMounted(async () => {
   const currentPosition = {
     city: await GetLocation.city(),
-    province: await GetLocation.province(),
     country: await GetLocation.country()
   }
   location.value = currentPosition
@@ -21,7 +20,6 @@ onMounted(async () => {
   const objData = {
     ip: await GetLocation.ip(),
     city: await GetLocation.city(),
-    province: await GetLocation.province(),
     country: await GetLocation.country()
   }
   const previousIPs = ip.value.map((v) => v.ip)
@@ -48,7 +46,7 @@ onMounted(async () => {
       <b v-if="location.city === ''" class="loading">Cargando...</b>
       <b v-else
         ><MapPin width="15" height="15" style="transform: translateY(2px)" /> {{ location.city }}
-        {{ location.province }}, {{ location.country }}!
+        {{ location.country }}!
       </b>
     </p>
   </aside>
