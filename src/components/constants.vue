@@ -1,7 +1,8 @@
 <script lang="js">
-export const apiKey = import.meta.env.VITE_WEATHER_API_KEY
+export const APIKEY = import.meta.env.VITE_WEATHER_API_KEY
 export const DBKEY = import.meta.env.VITE_SUPABASE_PUBLIC_ANNONKEY
 export const DBURL = import.meta.env.VITE_SUPABASE_URL
+export const TOKEN = import.meta.env.VITE_TOKEN_API_IP
 
 export const navItems = [
   {

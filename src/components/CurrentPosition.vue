@@ -1,5 +1,5 @@
 <script lang="js">
-import { apiKey } from './constants.vue'
+import { APIKEY, TOKEN } from './constants.vue'
 let hook = {}
 
 /**
@@ -8,7 +8,8 @@ let hook = {}
  */
 export class GetLocation {
   static async getData() {
-    const response = await fetch('https://geolocation.microlink.io/')
+    // const response = await fetch('https://geolocation.microlink.io/') <-- deprecated url
+    const response = await fetch(`https://ipinfo.io/json?token=${TOKEN}`)
     const data = await response.json()
     return data
   }
@@ -50,7 +51,7 @@ export class GetLocation {
   static async apiData() {
     const lat = await this.lat()
     const lon = await this.lon()
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKEY}`
     const res = await fetch(url)
     const data = res.json()
     return data
@@ -58,7 +59,7 @@ export class GetLocation {
   // Se obtiene la ip de la api de microlink
   static async ip() {
     const data = await this.getData()
-    return data.ip.address
+    return data.ip
   }
   /**
    * Utilizo el operador nullish ?? para utilizar uno u otro
@@ -72,12 +73,12 @@ export class GetLocation {
 
   static async country() {
     const data = await this.getData()
-    return data.country.name
+    return data.country
   }
 
   static async flag() {
     const data = await this.getData()
-    return data.country.flag
+    return data.country
   }
   /**
    * Fuente para información sobre uso de expresiones regulares:
