@@ -7,10 +7,13 @@ let hook = {}
  */
 export class GetLocation {
   static async getData() {
-    // const response = await fetch('https://geolocation.microlink.io/') <-- deprecated url
-    const response = await fetch('https://solid-geolocation.vercel.app/location')
-    const data = await response.json()
-    return data
+    try {
+      const response = await fetch('https://solid-geolocation.vercel.app/location')
+      const data = await response.json()
+      return data
+    } catch (err) {
+      console.error('No se puede obtener datos de la api', err)
+    }
   }
   // Se obtiene la latitud y longitud de la api del navegador para inyectar en la api del clima así
   // obtener la ubicación más precisa (Encontré este pequeño hack a la api del clima 🙂)
@@ -74,12 +77,9 @@ export class GetLocation {
     const data = await this.getData()
     return data.country.flag.small
   }
-  /**
-   * Fuente para información sobre uso de expresiones regulares:
-   * https://regex101.com/
-   */
+
   static async country() {
-    const data = await this.apiData()
+    const data = await this.getData()
     return data.country.name
   }
 }

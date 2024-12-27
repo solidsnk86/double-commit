@@ -22,6 +22,7 @@ onMounted(async () => {
     city: await GetLocation.city(),
     country: await GetLocation.country()
   }
+
   const previousIPs = ip.value.map((v) => v.ip)
 
   if (!previousIPs.includes(objData.ip)) {
@@ -109,9 +110,9 @@ p {
   padding-block: 3px;
   padding-left: 12px;
   padding-right: 4px;
-  border: 1px solid var(--color-border);
+  border: 1px solid #07335a;
   border-radius: 99px;
-  background-color: #02284a;
+  background: linear-gradient(to top, #02284a, #02203b);
   color: var(--color-heading);
 }
 
