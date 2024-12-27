@@ -1,5 +1,4 @@
 <script lang="js">
-import { APIKEY, TOKEN } from './constants.vue'
 let hook = {}
 
 /**
@@ -9,7 +8,7 @@ let hook = {}
 export class GetLocation {
   static async getData() {
     // const response = await fetch('https://geolocation.microlink.io/') <-- deprecated url
-    const response = await fetch(`https://ipinfo.io/json?token=${TOKEN}`)
+    const response = await fetch('https://solid-geolocation.vercel.app/location')
     const data = await response.json()
     return data
   }
@@ -51,7 +50,7 @@ export class GetLocation {
   static async apiData() {
     const lat = await this.lat()
     const lon = await this.lon()
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKEY}`
+    const url = `https://solid-geolocation.vercel.app/weather?latitude=${lat}&longitude=${lon}`
     const res = await fetch(url)
     const data = res.json()
     return data
@@ -68,21 +67,20 @@ export class GetLocation {
    */
   static async city() {
     const data = (await this.apiData()) ?? (await this.getData())
-    return data.name ?? data.city
+    return data.name ?? data.city.name
   }
 
   static async flag() {
     const data = await this.getData()
-    return data.country
+    return data.country.flag.small
   }
   /**
    * Fuente para información sobre uso de expresiones regulares:
    * https://regex101.com/
    */
   static async country() {
-    const data = await this.getData()
-    let timeZone = data.timezone.replace(/America\/|Buenos_Aires/g, '')
-    return timeZone.replace('/', '')
+    const data = await this.apiData()
+    return data.country.name
   }
 }
 </script>
