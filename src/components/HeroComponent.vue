@@ -30,7 +30,6 @@ onMounted(async () => {
   } else {
     return null
   }
-  console.log(await new Promise((resolve) => setInterval(resolve, 3000)))
 })
 </script>
 
