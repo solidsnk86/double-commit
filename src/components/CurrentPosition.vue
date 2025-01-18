@@ -2,8 +2,7 @@
 let hook = {}
 
 /**
- * Clase para obtener ubicación de la api geolocation.microlink.io y desde la
- * api de openweather para obtener una ubicación más precisa
+ * Clase para obtener ubicación de mi api de geolocalización
  */
 export class GetLocation {
   static async getData() {
@@ -15,8 +14,7 @@ export class GetLocation {
       console.error('No se puede obtener datos de la api', err)
     }
   }
-  // Se obtiene la latitud y longitud de la api del navegador para inyectar en la api del clima así
-  // obtener la ubicación más precisa (Encontré este pequeño hack a la api del clima 🙂)
+  // Se obtiene la latitud y longitud de la api del navegador para inyectar en la api
   static async currentPosition() {
     return new Promise((resolve, reject) => {
       if (navigator.geolocation) {
@@ -40,25 +38,14 @@ export class GetLocation {
 
   static async lat() {
     const data = await this.currentPosition()
-    return data.lat
+    return data.latitude
   }
 
   static async lon() {
     const data = await this.currentPosition()
-    return data.lon
+    return data.longitude
   }
 
-  // Obtengo los datos del clima según la latitud y longitud
-  //  Con éste truquito me permite obtener una ubicación más precisa y también los datos del clima
-  static async apiData() {
-    const lat = await this.lat()
-    const lon = await this.lon()
-    const url = `https://solid-geolocation.vercel.app/weather?latitude=${lat}&longitude=${lon}`
-    const res = await fetch(url)
-    const data = res.json()
-    return data
-  }
-  // Se obtiene la ip de la api de microlink
   static async ip() {
     const data = await this.getData()
     return data.ip
@@ -66,16 +53,16 @@ export class GetLocation {
   /**
    * Utilizo el operador nullish ?? para utilizar uno u otro
    * Según si el usuario permite la geolocalización del navegador, si no lo permite
-   * se usa geolocation.microlink de todas formas
+   * se usa haversine geolocalización de todas formas
    */
   static async city() {
-    const data = (await this.apiData()) ?? (await this.getData())
-    return data.name ?? data.city.name
+    const data = await this.getData()
+    return data.city.name
   }
 
   static async flag() {
     const data = await this.getData()
-    return data.country.flag.small
+    return data.country.emoji_flag
   }
 
   static async country() {
