@@ -50,11 +50,7 @@ export class GetLocation {
     const data = await this.getData()
     return data.ip
   }
-  /**
-   * Utilizo el operador nullish ?? para utilizar uno u otro
-   * Según si el usuario permite la geolocalización del navegador, si no lo permite
-   * se usa haversine geolocalización de todas formas
-   */
+
   static async city() {
     const data = await this.getData()
     return data.city.name
