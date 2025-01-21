@@ -1,6 +1,4 @@
 <script lang="js">
-let hook = {}
-
 /**
  * Clase para obtener ubicación de mi api de geolocalización
  */
@@ -20,11 +18,11 @@ export class GetLocation {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
           (position) => {
-            const latitude = position.coords.latitude
-            const longitude = position.coords.longitude
-            hook.lat = latitude
-            hook.lon = longitude
-            resolve(hook)
+            const coords = {
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude
+            }
+            resolve(coords)
           },
           (error) => {
             reject(error)
@@ -34,6 +32,14 @@ export class GetLocation {
         reject(new Error('Geolocalización no está soportada por este navegador'))
       }
     })
+  }
+
+  static async getPresicionLocation() {
+    const response = await fetch(
+      `https://calcagni-gabriel.vercel.app/api/geolocation?lat=-24.1858&lon=-65.2995`
+    )
+    const data = await response.json()
+    return data
   }
 
   static async lat() {

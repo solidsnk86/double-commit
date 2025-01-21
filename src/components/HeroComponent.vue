@@ -5,13 +5,15 @@ import { ref, onMounted } from 'vue'
 import { Terminal } from 'lucide-vue-next'
 import { Model } from './ActionClass.vue'
 
-const location = ref({ city: '', province: '', country: '' })
+const location = ref({ city: '', state: '', country: '' })
 const ip = ref([])
 
 onMounted(async () => {
+  const { city, state, country } = await GetLocation.getPresicionLocation()
   const currentPosition = {
-    city: await GetLocation.city(),
-    country: await GetLocation.country()
+    city: city,
+    state: state,
+    country: country
   }
   location.value = currentPosition
 
@@ -19,8 +21,8 @@ onMounted(async () => {
 
   const objData = {
     ip: await GetLocation.ip(),
-    city: await GetLocation.city(),
-    country: await GetLocation.country()
+    city: currentPosition.city,
+    country: currentPosition.country
   }
 
   const previousIPs = ip.value.map((v) => v.ip)
@@ -46,7 +48,7 @@ onMounted(async () => {
       <b v-if="location.city === ''" class="loading">Cargando...</b>
       <b v-else
         ><MapPin width="15" height="15" style="transform: translateY(2px)" /> {{ location.city }}
-        {{ location.country }}!
+        {{ location.state }}, {{ location.country }}!
       </b>
     </p>
   </aside>
@@ -136,7 +138,7 @@ b {
   }
 }
 
-@media (width < 420px) {
+@media (width < 440px) {
   p {
     font-size: 12px;
   }
@@ -146,6 +148,9 @@ b {
   h1,
   .double-commit {
     font-size: 2.5rem;
+  }
+  p {
+    font-size: 11px;
   }
 }
 </style>
