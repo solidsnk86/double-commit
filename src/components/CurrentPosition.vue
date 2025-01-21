@@ -36,7 +36,7 @@ export class GetLocation {
 
   static async getPresicionLocation() {
     const response = await fetch(
-      `https://calcagni-gabriel.vercel.app/api/geolocation?lat=-24.1858&lon=-65.2995`
+      `https://calcagni-gabriel.vercel.app/api/geolocation?lat=${await this.lat()}&lon=${await this.lon()}`
     )
     const data = await response.json()
     return data
