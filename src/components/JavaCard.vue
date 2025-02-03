@@ -56,6 +56,7 @@ article {
   transition: all 0.8s ease;
   view-timeline-name: --javacard;
   view-timeline-axis: block;
+  background-color: #232321;
 
   animation-timeline: --javacard;
   animation-name: vanish;
@@ -119,6 +120,8 @@ img {
   width: 70%;
   height: 100%;
   flex-shrink: 0;
+  mask-image: linear-gradient(to left, black 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, black 50%, transparent 100%);
 }
 
 .btn-github {
