@@ -3,15 +3,15 @@ import { supabase } from '@/lib/supabaseClient'
 import { z } from 'zod'
 
 export class Model {
-  static async getComment() {
+  static async getComment({ from, select, limit, orderBy }) {
     try {
       const response = await fetch(
-        'https://supabase-rest-api.vercel.app/supabase/?from=portfolio_comments&select=*',
+        `https://supabase-rest-api.vercel.app/supabase/?from=${from}&select=${select}&limit=%${limit}&order=${orderBy}`,
         { method: 'GET', mode: 'cors', headers: { 'Content-Type': 'application/json' } }
       )
       if (!response.ok) throw new Error(`Cannot get data from API ${response.statusText}`)
       const data = await response.json()
-      console.log({ data })
+
       return data
     } catch (err) {
       console.error('Error al obtener comentarios: ', err)

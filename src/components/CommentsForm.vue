@@ -59,7 +59,12 @@ const validateField = (field) => {
 }
 // Obtener comentarios para refrescar y renderizarlo
 const refreshComments = async () => {
-  comments.value = await Model.getComment()
+  comments.value = await Model.getComment({
+    from: 'portfolio_comments',
+    select: '*',
+    limit: 10,
+    orderBy: 'created_at'
+  })
 }
 
 // Envío del formulario a la BD
