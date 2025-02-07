@@ -18,7 +18,7 @@ onMounted(async () => {
   location.value = currentPosition
 
   ip.value = await Model.getVisits({
-    from: 'double_commits_visits',
+    from: 'double_commit_visits',
     select: 'ip',
     limit: 1,
     orderBy: 'created_at'
