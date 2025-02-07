@@ -13,6 +13,12 @@ onMounted(async () => {
     limit: 1,
     orderBy: 'created_at'
   })
+  visitsFrom.value = await Model.getVisits({
+    from: 'double_commit_visits',
+    select: 'city,province,country',
+    limit: 1,
+    orderBy: 'created_at'
+  })
 })
 </script>
 
