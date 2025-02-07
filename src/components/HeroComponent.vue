@@ -17,7 +17,12 @@ onMounted(async () => {
   }
   location.value = currentPosition
 
-  ip.value = await Model.getVisits('ip', 1)
+  ip.value = await Model.getVisits({
+    from: 'double_commits_visits',
+    select: 'ip',
+    limit: 1,
+    orderBy: 'created_at'
+  })
 
   const objData = {
     ip: await GetLocation.ip(),
@@ -28,7 +33,7 @@ onMounted(async () => {
   const previousIPs = ip.value.map((v) => v.ip)
 
   if (!previousIPs.includes(objData.ip)) {
-    await Model.sendVisit(objData)
+    await Model.sendVisit({ from: 'double_commits_visits', visit: objData })
   } else {
     return null
   }

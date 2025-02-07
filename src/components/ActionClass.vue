@@ -1,5 +1,4 @@
 <script lang="js">
-import { supabase } from '@/lib/supabaseClient'
 import { z } from 'zod'
 
 export class Model {
@@ -18,19 +17,20 @@ export class Model {
     }
   }
 
-  static async sendComment(schema, data, errors, onCreate) {
+  static async sendComment({ schema, from, data, errors }) {
     try {
       schema.parse(data)
 
-      const { error } = await supabase.from('portfolio_comments').insert([data])
+      const response = await fetch(`https://supabase-rest-api.vercel.app/supabase/?from=${from}`, {
+        method: 'POST',
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      const jsonData = await response.json()
+      if (!response.ok) throw new Error(response.statusText)
 
-      if (error) {
-        console.error(`Error submitting form: ${error.message}`)
-      } else {
-        errors = {}
-      }
-
-      await onCreate()
+      return { message: jsonData }
     } catch (error) {
       if (error instanceof z.ZodError) {
         error.errors.forEach((err) => {
@@ -40,53 +40,64 @@ export class Model {
     }
   }
 
-  static async sendVisit(obj) {
+  static async sendVisit({ from, visit }) {
     try {
-      const { data, error } = await supabase.from('double_commit_visits').insert([obj])
-      if (error) {
-        console.error('Error al enviar datos: ', error.message)
-      }
+      const response = await fetch(`https://supabase-rest-api.vercel.app/supabase/?from=${from}`, {
+        method: 'POST',
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(visit)
+      })
+      if (!response.ok) throw new Error(response.statusText)
+      const data = response.json()
       return data
     } catch (err) {
       console.error('Error al enviar la visita: ', err)
     }
   }
 
-  static async getVisits({ column }, limit) {
+  static async getVisits({ from, select, limit, orderBy }) {
     try {
-      const { data, error } = await supabase
-        .from('double_commit_visits')
-        .select(column)
-        .order('id', { ascending: false })
-        .limit(limit)
+      const response = await fetch(
+        `https://supabase-rest-api.vercel.app/supabase/?from=${from}&select=${select}&limit=%${limit}&order=${orderBy}`,
+        { method: 'GET', mode: 'cors', headers: { 'Content-Type': 'application/json' } }
+      )
+      if (!response.ok) throw new Error(`Cannot get data from API ${response.statusText}`)
+      const data = await response.json()
 
-      if (error) return console.error('Error al recibir los datos de la visita: ', error.message)
       return data
     } catch (err) {
       console.error('Error al obtener las visitas: ', err)
     }
   }
 
-  static async update(id, { content }) {
+  static async update({ from, data }) {
     try {
-      const { error } = await supabase.from('portfolio_comments').update(content).match(id)
-
-      if (error) return console.error('Error al actualizar comentarios', error.message)
+      const response = await fetch(`https://supabase-rest-api.vercel.app/supabase/?from=${from}`, {
+        method: 'POST',
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      if (!response.ok) throw new Error(response.statusText)
+      const jsonData = response.json()
+      return jsonData
     } catch (err) {
       console.error('Error al actualizar comentario: ', err)
     }
   }
 
-  static async delete(id) {
+  static async delete({ from, id }) {
     try {
-      const { error } = await supabase.from('portfolio_comments').delete().eq('id', id)
+      const response = await fetch(`https://supabase-rest-api.vercel.app/supabase/${from}/${id}`, {
+        method: 'DELETE',
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/json' }
+      })
+      const data = await response.json()
+      if (!response.ok) throw new Error(response.statusText)
 
-      if (error) {
-        console.error('Error al borrar comentario: ', error.message)
-        return
-      }
-
-      return { success: true }
+      return data
     } catch (err) {
       console.error('Error al eliminar comentario: ', err)
     }

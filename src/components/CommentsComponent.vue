@@ -21,7 +21,7 @@ const currentIp = ref([])
 
 const deleteComment = async (id) => {
   try {
-    const result = await Model.delete(id)
+    const result = await Model.delete({ from: 'portfolio_comments', id: id })
     if (result.success) {
       emit('delete')
     } else {

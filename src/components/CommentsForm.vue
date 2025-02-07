@@ -76,7 +76,12 @@ const sendForm = async (e) => {
   dataForm.value.province = await GetLocation.province()
   dataForm.value.country = await GetLocation.country()
 
-  await Model.sendComment(formSchema, dataForm.value, errors.value)
+  await Model.sendComment({
+    schema: formSchema,
+    from: 'portfolio_commets',
+    data: dataForm.value,
+    errors: errors.value
+  })
 
   showDialog.value = true
   dialogMessage.value = `Muchas gracias por tu comentario ${dataForm.value.name}!`
