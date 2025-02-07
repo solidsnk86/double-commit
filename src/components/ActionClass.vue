@@ -5,13 +5,13 @@ import { z } from 'zod'
 export class Model {
   static async getComment() {
     try {
-      const { data, error } = await supabase
-        .from('portfolio_comments')
-        .select('*')
-        .limit(10)
-        .order('created_at', { ascending: false })
-
-      if (error) return console.error('Error al obtener los comentarios', error.message)
+      const response = await fetch(
+        'https://supabase-rest-api.vercel.app/supabase/?from=portfolio_comments&select=*',
+        { method: 'GET', mode: 'cors', headers: { 'Content-Type': 'application/json' } }
+      )
+      if (!response.ok) throw new Error(`Cannot get data from API ${response.statusText}`)
+      const data = await response.json()
+      console.log({ data })
       return data
     } catch (err) {
       console.error('Error al obtener comentarios: ', err)
