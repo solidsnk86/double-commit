@@ -29,8 +29,8 @@ onMounted(async () => {
     city: currentPosition.city,
     country: currentPosition.country
   }
-
-  const previousIPs = ip.value.map((v) => v.ip)
+  console.log(ip.value)
+  const previousIPs = ip.value
 
   if (!previousIPs.includes(objData.ip)) {
     await Model.sendVisit({ from: 'double_commit_visits', visit: objData })
