@@ -6,15 +6,13 @@ import { MapPinnedIcon } from 'lucide-vue-next'
 const visitsCount = ref([])
 const visitsFrom = ref([])
 
-const from = {
-  city: '',
-  province: '',
-  country: ''
-}
-
 onMounted(async () => {
-  visitsCount.value = await Model.getVisits('id', 1)
-  visitsFrom.value = await Model.getVisits(from, 1)
+  visitsCount.value = await Model.getVisits({
+    from: 'double_commit_visits',
+    select: 'id',
+    limit: 1,
+    orderBy: 'created_at'
+  })
 })
 </script>
 
