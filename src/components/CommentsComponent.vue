@@ -34,7 +34,12 @@ const deleteComment = async (id) => {
 
 onMounted(async () => {
   currentIp.value = await GetLocation.ip()
-  ip.value = await Model.getVisits('ip', 1)
+  ip.value = await Model.getVisits({
+    from: 'double_commit_visits',
+    select: 'ip',
+    limit: 1,
+    orderBy: 'created_at'
+  })
   previousIP.value = ip.value.map((v) => v.ip)
 })
 </script>
