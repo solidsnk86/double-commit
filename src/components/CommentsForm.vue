@@ -77,7 +77,7 @@ const sendForm = async (e) => {
 
   await Model.sendComment({
     schema: formSchema,
-    from: 'portfolio_commets',
+    from: 'portfolio_comments',
     data: dataForm.value,
     errors: errors.value
   })
