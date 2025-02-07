@@ -5,7 +5,7 @@ export class Model {
   static async getComment({ from, select, limit, orderBy }) {
     try {
       const response = await fetch(
-        `https://supabase-rest-api.vercel.app/supabase/?from=${from}&select=${select}&limit=%${limit}&order=${orderBy}`,
+        `https://supabase-rest-api.vercel.app/supabase/optional/?from=${from}&select=${select}&limit=%${limit}&order=${orderBy}`,
         { method: 'GET', mode: 'cors', headers: { 'Content-Type': 'application/json' } }
       )
       if (!response.ok) throw new Error(`Cannot get data from API ${response.statusText}`)
