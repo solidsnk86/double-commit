@@ -73,7 +73,6 @@ const sendForm = async (e) => {
   isSubmiting.value = true
   dataForm.value.ip = await GetLocation.ip()
   dataForm.value.city = await GetLocation.city()
-  dataForm.value.province = await GetLocation.province()
   dataForm.value.country = await GetLocation.country()
 
   await Model.sendComment({
