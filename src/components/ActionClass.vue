@@ -89,7 +89,7 @@ export class Model {
 
   static async delete({ from, id }) {
     try {
-      const response = await fetch(`https://supabase-rest-api.vercel.app/supabase/${from}/${id}`, {
+      const response = await fetch(`https://supabase-rest-api.vercel.app/supabase/?${from}&${id}`, {
         method: 'DELETE',
         mode: 'cors',
         headers: { 'Content-Type': 'application/json' }
