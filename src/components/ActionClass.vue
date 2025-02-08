@@ -89,11 +89,14 @@ export class Model {
 
   static async delete({ from, id }) {
     try {
-      const response = await fetch(`https://supabase-rest-api.vercel.app/supabase/?${from}&${id}`, {
-        method: 'DELETE',
-        mode: 'cors',
-        headers: { 'Content-Type': 'application/json' }
-      })
+      const response = await fetch(
+        `https://supabase-rest-api.vercel.app/supabase/?from=${from}&id=${id}`,
+        {
+          method: 'DELETE',
+          mode: 'cors',
+          headers: { 'Content-Type': 'application/json' }
+        }
+      )
       const data = await response.json()
       if (!response.ok) throw new Error(response.statusText)
 
