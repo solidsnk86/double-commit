@@ -22,10 +22,10 @@ const currentIp = ref([])
 const deleteComment = async (id) => {
   try {
     const result = await Model.delete({ from: 'portfolio_comments', id: id })
-    if (result.message) {
+    if (result) {
       emit('delete')
     } else {
-      console.error('Error al eliminar el comentario:', result.message)
+      console.error('Error al eliminar el comentario:', result)
     }
   } catch (error) {
     console.error('Error en la operación de eliminación:', error)
